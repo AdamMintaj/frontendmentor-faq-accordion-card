@@ -1,0 +1,244 @@
+// Variables and stuff
+
+$primaryTextDarkBlue: hsl(238, 29%, 16%);
+$primaryTextSoftEed: hsl(14, 88%, 65%);
+$neutralTextDarkBlue: hsl(237, 12%, 33%);
+$neutralTextblue: hsl(240, 6%, 50%);
+$dividers: hsl(240, 5%, 91%);
+$backgroundGradient: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+
+@keyframes desktopBoxFloat {
+    0%      {top: 38%;}
+    50%     {top: 40%;}
+    100%    {top: 38%;}
+}
+
+// Mobile styles first
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background-image: $backgroundGradient;
+    // background-attachment: fixed;
+    font-family: 'Kumbh sans', sans-serif;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    .container {
+        background-color: white;
+        width: 87%;
+        margin: 40% auto;
+        border-radius: 20px;
+
+        .figure {
+            &--desktop {
+                display: none;
+            }
+
+            &--mobile {
+                position: relative;
+                padding-top: 40%;
+                width: 72%;
+                margin: 0 auto;
+
+                .figure__image {
+                    position: absolute;
+                    
+                    &--woman {
+                        top: -82%;
+                    }
+
+                    &--shadow {
+                        top: 0%;
+                        right: 0%;
+                    }
+                }
+            }
+        }
+
+        .faq {
+            width: 85%;
+            margin: 0 auto 3rem;
+
+            &__header {
+                text-align: center;
+                color: $primaryTextDarkBlue;
+            }
+
+            &__singleSection {
+                display: block;
+                padding: 1rem 0;
+                border-bottom: 1px solid $dividers;
+
+                label {
+                    width: calc(100% - 10px);
+                    display: block;
+                    float: left;
+                    color: $neutralTextDarkBlue;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 1;
+                    
+                    &:hover {
+                        color: $primaryTextSoftEed;
+                    }
+                }
+                
+                p {
+                    clear: both;
+                    width: calc(100% - 10px);
+
+                    // old idea where I only toggled display: none/block
+                    // color: $neutralTextblue;
+                    // margin-top: 1rem;
+                    // display: none;
+
+                    // new idea with transition and rolling down
+                    line-height: 0;
+                    user-select: none;
+                    color: transparent;
+                    margin: 0;
+                    transition: .4s;
+                }
+            }
+
+            &__hiddenCheckbox {
+                display: none;
+
+                &:checked + .faq__singleSection{
+                    label {
+                        color: $primaryTextDarkBlue;
+                        font-weight: 700;
+                    }
+
+                    img {
+                        transform: rotate(180deg);
+                        transition: .8s;
+                    }
+                    
+                    p {
+                        // old idea where I only toggled display: none/block
+                        // display: block;
+
+                        // new idea with transition and rolling down
+                        line-height: normal;
+                        margin-top: 1rem;
+                        color: $neutralTextblue;
+                        user-select: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: $primaryTextDarkBlue;
+    
+    a {
+        text-decoration: none;
+        color: $primaryTextDarkBlue;
+        font-weight: 700;
+
+        &:hover {
+            color: $primaryTextSoftEed;
+        }
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    html {
+        height: 100%;
+    }
+    
+    body {
+        height: 100%;
+    }
+    
+    main {
+        .container {
+            width: 65%;
+            max-width: 950px;
+            margin: auto;
+            display: flex;
+    
+            .figure {
+                &--desktop {
+                    display: block;
+                    width: 50%;
+                    position: relative;
+                }
+
+                &__overflowingImages {
+                    overflow: hidden;
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                }
+
+                &__image {
+                    user-select: none;
+
+                    &--desktopWoman {
+                        position: relative;
+                        width: 100%;
+                        right: 18%;
+                        align-self: center;
+                    }
+
+                    &--desktopBox {
+                        position: absolute;
+                        width: 40%;
+                        top: 40%;
+                        right: 79%;
+                        animation: desktopBoxFloat 3s infinite;
+                    }
+
+                    &--pattern {
+                        position: absolute;
+                        height: 200%;
+                        right: 18%;
+                        bottom: -35%;
+                    }
+                }
+    
+                &--mobile {
+                    display: none;
+                }
+            }
+    
+            .faq {
+                width: 50%;
+                margin: 3rem auto 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+    
+                &__header {
+                    text-align: left;
+                    font-size: 2rem;
+                }
+
+                &__content {
+                    width: 78%;
+                    min-height: 316px;
+                }
+            }
+        }
+    }
+}

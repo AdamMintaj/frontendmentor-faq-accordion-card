@@ -1,0 +1,259 @@
+@-webkit-keyframes desktopBoxFloat {
+  0% {
+    top: 38%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 38%;
+  }
+}
+
+@keyframes desktopBoxFloat {
+  0% {
+    top: 38%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 38%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
+  background-image: linear-gradient(to bottom, #af67e9, #6565e7);
+  font-family: 'Kumbh sans', sans-serif;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .container {
+  background-color: white;
+  width: 87%;
+  margin: 40% auto;
+  border-radius: 20px;
+}
+
+main .container .figure--desktop {
+  display: none;
+}
+
+main .container .figure--mobile {
+  position: relative;
+  padding-top: 40%;
+  width: 72%;
+  margin: 0 auto;
+}
+
+main .container .figure--mobile .figure__image {
+  position: absolute;
+}
+
+main .container .figure--mobile .figure__image--woman {
+  top: -82%;
+}
+
+main .container .figure--mobile .figure__image--shadow {
+  top: 0%;
+  right: 0%;
+}
+
+main .container .faq {
+  width: 85%;
+  margin: 0 auto 3rem;
+}
+
+main .container .faq__header {
+  text-align: center;
+  color: #1d1e35;
+}
+
+main .container .faq__singleSection {
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e7e7e9;
+}
+
+main .container .faq__singleSection label {
+  width: calc(100% - 10px);
+  display: block;
+  float: left;
+  color: #4a4b5e;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+main .container .faq__singleSection label:hover {
+  color: #f47c57;
+}
+
+main .container .faq__singleSection p {
+  clear: both;
+  width: calc(100% - 10px);
+  line-height: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: transparent;
+  margin: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+main .container .faq__hiddenCheckbox {
+  display: none;
+}
+
+main .container .faq__hiddenCheckbox:checked + .faq__singleSection label {
+  color: #1d1e35;
+  font-weight: 700;
+}
+
+main .container .faq__hiddenCheckbox:checked + .faq__singleSection img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: .8s;
+  transition: .8s;
+}
+
+main .container .faq__hiddenCheckbox:checked + .faq__singleSection p {
+  line-height: normal;
+  margin-top: 1rem;
+  color: #787887;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+      -ms-user-select: auto;
+          user-select: auto;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1d1e35;
+}
+
+footer a {
+  text-decoration: none;
+  color: #1d1e35;
+  font-weight: 700;
+}
+
+footer a:hover {
+  color: #f47c57;
+}
+
+@media only screen and (min-width: 900px) {
+  html {
+    height: 100%;
+  }
+  body {
+    height: 100%;
+  }
+  main .container {
+    width: 65%;
+    max-width: 950px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main .container .figure--desktop {
+    display: block;
+    width: 50%;
+    position: relative;
+  }
+  main .container .figure__overflowingImages {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  main .container .figure__image {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  main .container .figure__image--desktopWoman {
+    position: relative;
+    width: 100%;
+    right: 18%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  main .container .figure__image--desktopBox {
+    position: absolute;
+    width: 40%;
+    top: 40%;
+    right: 79%;
+    -webkit-animation: desktopBoxFloat 3s infinite;
+            animation: desktopBoxFloat 3s infinite;
+  }
+  main .container .figure__image--pattern {
+    position: absolute;
+    height: 200%;
+    right: 18%;
+    bottom: -35%;
+  }
+  main .container .figure--mobile {
+    display: none;
+  }
+  main .container .faq {
+    width: 50%;
+    margin: 3rem auto 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main .container .faq__header {
+    text-align: left;
+    font-size: 2rem;
+  }
+  main .container .faq__content {
+    width: 78%;
+    min-height: 316px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
